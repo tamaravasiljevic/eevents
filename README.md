@@ -1,4 +1,4 @@
-# VIVANT
+#EEVENTS
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/a27b80f6c9d64283ac9899a4c99bf9d6)](https://www.codacy.com?utm_source=bitbucket.org&amp;utm_medium=referral&amp;utm_content=cdpwebteam/vivant-backend&amp;utm_campaign=Badge_Grade) [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/a27b80f6c9d64283ac9899a4c99bf9d6)](https://www.codacy.com?utm_source=bitbucket.org&utm_medium=referral&utm_content=cdpwebteam/vivant-backend&utm_campaign=Badge_Coverage)
 
