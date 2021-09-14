@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
-use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class Ticket extends Model

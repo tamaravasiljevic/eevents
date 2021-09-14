@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/eevents.iml" filepath="$PROJECT_DIR$/.idea/eevents.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../laradock/.idea/laradock.iml" filepath="$PROJECT_DIR$/../laradock/.idea/laradock.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../Projects/VIVANT/vivant-backend/.idea/vivant-backend.iml" filepath="$PROJECT_DIR$/../../Projects/VIVANT/vivant-backend/.idea/vivant-backend.iml" />
     </modules>
   </component>

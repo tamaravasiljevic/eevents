@@ -7,8 +7,8 @@ use App\Traits\ActivityTraits;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Jenssegers\Mongodb\Auth\User as Authenticatable;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\Models\Media;
@@ -19,18 +19,19 @@ class User extends Authenticatable
     use CrudTrait;
     use LogsActivityCustom;
 
+    protected $collection = 'users';
 
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password', 'phone', 'timezone', 'language'
+        'first_name', 'last_name', 'email', 'password', 'phone', 'timezone', 'language','random'
     ];
 
     protected static $logAttributes = [ 'first_name', 'last_name', 'email', 'password', 'phone', 'timezone', 'language'];
 
     protected static $logOnlyDirty = true;
 
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+//    protected $hidden = [
+//        'password', 'remember_token',
+//    ];
 
     protected $casts = [
         'email_verified_at' => 'datetime',
@@ -38,17 +39,17 @@ class User extends Authenticatable
 
     public static function boot()
     {
-        static::updating(/**
-         * @param $obj
-         */
-            function ($obj){
-            if(request()->input('password')) {
-                request()->merge(['password' => \Hash::make(request()->input('password'))]);
-            }
-
-
-        });
-        parent::boot();
+//        static::updating(/**
+//         * @param $obj
+//         */
+//            function ($obj){
+//            if(request()->input('password')) {
+//                request()->merge(['password' => \Hash::make(request()->input('password'))]);
+//            }
+//
+//
+//        });
+//        parent::boot();
 
     }
 

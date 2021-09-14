@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\Activitylog\Traits\LogsActivity;
 
@@ -18,6 +18,7 @@ class RoleUser extends Model
     ];
 
     protected static $logAttributes = ['role_id', 'user_id'];
+
 
     public $timestamps = false;
 

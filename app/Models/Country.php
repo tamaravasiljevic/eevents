@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Http\Traits\LogsActivityCustom;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
-use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\Model;
 class Country extends Model
 {
     use CrudTrait;
@@ -22,7 +22,6 @@ class Country extends Model
     protected $guarded = ['id'];
      protected $fillable = ['name', 'iso'];
     protected static $logOnlyDirty = true;
-
     protected static $logAttributes = ['name', 'iso'];
 
     /*

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Http\Traits\LogsActivityCustom;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
-use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\Model;
 use Illuminate\Support\Facades\Date;
 
 class Event extends Model
@@ -35,7 +35,6 @@ class Event extends Model
         'starts_at' => 'datetime',
         'ends_at' => 'datetime',
     ];
-
     /*
     |--------------------------------------------------------------------------
     | FUNCTIONS

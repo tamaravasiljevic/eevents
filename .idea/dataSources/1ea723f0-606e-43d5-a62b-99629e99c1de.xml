@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MongoDB - @localhost">
+  <database-model serializer="dbm" dbms="MONGO" family-id="MONGO" format-version="4.20">
+    <root id="1">
+      <ServerVersion>5.0.2</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="admin"/>
+    <schema id="3" parent="1" name="config"/>
+    <schema id="4" parent="1" name="eevents"/>
+    <schema id="5" parent="1" name="local"/>
+    <table id="6" parent="4" name="activity_log"/>
+    <table id="7" parent="4" name="companies"/>
+    <table id="8" parent="4" name="countries"/>
+    <table id="9" parent="4" name="event_types"/>
+    <table id="10" parent="4" name="events"/>
+    <table id="11" parent="4" name="failed_jobs"/>
+    <table id="12" parent="4" name="log_activities"/>
+    <table id="13" parent="4" name="media"/>
+    <table id="14" parent="4" name="migrations"/>
+    <table id="15" parent="4" name="password_resets"/>
+    <table id="16" parent="4" name="role_user"/>
+    <table id="17" parent="4" name="roles"/>
+    <table id="18" parent="4" name="tickets"/>
+    <table id="19" parent="4" name="users"/>
+    <table id="20" parent="4" name="venues"/>
+    <column id="21" parent="14" name="_id">
+      <DataType>ObjectId(0)|12s</DataType>
+    </column>
+    <column id="22" parent="14" name="batch">
+      <DataType>Integer|4s</DataType>
+    </column>
+    <column id="23" parent="14" name="migration">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="24" parent="19" name="_id">
+      <DataType>ObjectId(0)|12s</DataType>
+    </column>
+    <column id="25" parent="19" name="id">
+      <DataType>String(0)|12s</DataType>
+    </column>
+  </database-model>
+</dataSource>

@@ -2,7 +2,7 @@
 namespace App\Models;
 
 
-use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 
@@ -36,7 +36,6 @@ class LogActivity extends Model
     protected $dates = [
         'created_at', 'updated_at'
     ];
-
     public $appends = [
         'action_nice_name',
         'ip_address_nice'

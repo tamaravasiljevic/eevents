@@ -3,19 +3,15 @@
 namespace App\Models;
 
 use App\Http\Traits\LogsActivityCustom;
-use App\Models\User;
-use Backpack\CRUD\app\Models\Traits\InheritsRelationsFromParentModel;
 use Backpack\CRUD\app\Notifications\ResetPasswordNotification as ResetPasswordNotification;
 use Illuminate\Notifications\Notifiable;
 
 class BackpackUser extends User
 {
-    use InheritsRelationsFromParentModel;
     use Notifiable;
     use LogsActivityCustom;
 
-    protected $table = 'users';
-
+    protected $collection = 'users';
     /**
      * Send the password reset notification.
      *

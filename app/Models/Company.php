@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Http\Traits\LogsActivityCustom;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
-use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\Model;
 
 class Company extends Model
 {
@@ -23,7 +23,6 @@ class Company extends Model
     protected $guarded = ['id'];
     protected static $logAttributes = ['name', 'description', 'email', 'phone', 'website', 'facebook_url', 'twitter_url',
         'instagram_url', 'linkedin_url'];
-
     /*
     |--------------------------------------------------------------------------
     | FUNCTIONS
