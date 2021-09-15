@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Helpers\LogActivity;
 use App\Http\Requests\EventRequest;
+use App\Models\Company;
 use App\Models\Event;
 use App\Models\EventType;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
@@ -73,28 +74,28 @@ class EventCrudController extends CrudController
                 'label' => 'Description',
                 'type'  => 'tinymce'
             ],
-            [
-                'label' => 'Company',
-                'type'  => 'select',
-                'name'  => 'company_id',
-                'entity'    => 'company',
-                'attribute' => 'name',
-                'model' => 'App\Models\Company',
-                'wrapperAttributes' => [
-                    'class' => 'col-md-6'
-                ]
-            ],
-            [
-                'label' => 'Venue',
-                'type'  => 'select',
-                'name'  => 'venue_id',
-                'entity'    => 'venue',
-                'attribute' => 'name',
-                'model' => 'App\Models\Venue',
-                'wrapperAttributes' => [
-                    'class' => 'col-md-6'
-                ]
-            ],
+                [
+                    'label' => 'Company',
+                    'type'  => 'select',
+                    'name'  => 'company_id',
+                    'entity'    => 'company',
+                    'attribute' => 'name',
+                    'model' => Company::class,
+                    'wrapperAttributes' => [
+                        'class' => 'col-md-6'
+                    ]
+                ],
+                [
+                    'label' => 'Venue',
+                    'type'  => 'select',
+                    'name'  => 'venue_id',
+                    'entity'    => 'venue',
+                    'attribute' => 'name',
+                    'model' => 'App\Models\Venue',
+                    'wrapperAttributes' => [
+                        'class' => 'col-md-6'
+                    ]
+                ],
             [
                 'label' => 'Starts at',
                 'name'  => 'starts_at',

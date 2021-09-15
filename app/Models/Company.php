@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use Alexzvn\LaravelMongoNotifiable\Notifiable;
 use App\Http\Traits\LogsActivityCustom;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Jenssegers\Mongodb\Eloquent\Model;
 
 class Company extends Model
 {
+    use Notifiable;
     use CrudTrait;
     use LogsActivityCustom;
 
@@ -18,6 +20,8 @@ class Company extends Model
     */
 
     protected $table = 'companies';
+    protected $collection='companies';
+    protected $connection='mongodb';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
@@ -29,6 +33,10 @@ class Company extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function getConnectionName()
+    {
+        return config('database.default');
+    }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

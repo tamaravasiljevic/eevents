@@ -9,7 +9,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 class LogActivity extends Model
 {
 
-    protected $table = "log_activities";
+    protected $collection = "log_activities";
 
     const CREATE = "CREATE";
     const UPDATE = "UPDATE";

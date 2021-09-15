@@ -62,6 +62,10 @@ class VenueCrudController extends CrudController
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(VenueRequest::class);
+        $countries = Country::all()->mapWithKeys(function ($item) {
+                    return [$item->id => $item->name];
+                });
+
         $this->crud->addFields([
             [
                 'name'  => 'name',
@@ -87,9 +91,7 @@ class VenueCrudController extends CrudController
                 'label' => 'Country',
                 'name'  => 'country_id',
                 'type'  => 'select2_from_array',
-                'options'   => Country::all()->mapWithKeys(function ($item) {
-                    return [$item->id => $item->name];
-                }),
+                'options'   => $countries,
             ],
             [
                 'name'  => 'timezone',

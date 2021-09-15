@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Alexzvn\LaravelMongoNotifiable\Notifiable;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Jenssegers\Mongodb\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -13,6 +14,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class ActivityLog extends Model
 {
+    use Notifiable;
     use CrudTrait;
     use LogsActivity;
     /*
@@ -25,6 +27,10 @@ class ActivityLog extends Model
     protected $casts = [
         'properties' => 'array'
     ];
+    protected $collection = 'activity_log';
+    protected $connection = 'mongodb';
+
+    protected $fillable = ['caused_by', 'description'];
 
     public function getCausedByAttribute()
     {

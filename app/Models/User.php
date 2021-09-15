@@ -3,19 +3,15 @@
 namespace App\Models;
 
 use App\Http\Traits\LogsActivityCustom;
-use App\Traits\ActivityTraits;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Notifications\Notifiable;
 use Jenssegers\Mongodb\Auth\User as Authenticatable;
-use Spatie\Activitylog\Traits\LogsActivity;
-use Spatie\Image\Manipulations;
-use Spatie\MediaLibrary\Models\Media;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use \Alexzvn\LaravelMongoNotifiable\Notifiable;
     use CrudTrait;
     use LogsActivityCustom;
 
@@ -29,28 +25,23 @@ class User extends Authenticatable
 
     protected static $logOnlyDirty = true;
 
-//    protected $hidden = [
-//        'password', 'remember_token',
-//    ];
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
 
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
 
+
+    public function getConnectionName()
+    {
+        return config('database.default');
+    }
+
     public static function boot()
     {
-//        static::updating(/**
-//         * @param $obj
-//         */
-//            function ($obj){
-//            if(request()->input('password')) {
-//                request()->merge(['password' => \Hash::make(request()->input('password'))]);
-//            }
-//
-//
-//        });
-//        parent::boot();
-
+        parent::boot();
     }
 
     public function roles()  : BelongsToMany

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Alexzvn\LaravelMongoNotifiable\Notifiable;
 use App\Http\Traits\LogsActivityCustom;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Jenssegers\Mongodb\Eloquent\Model;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\Date;
 class Event extends Model
 {
     use CrudTrait;
+    use Notifiable;
     use LogsActivityCustom;
 
     /*
@@ -27,6 +29,7 @@ class Event extends Model
 
     protected $table = 'events';
     protected $guarded = ['id'];
+    protected $collection = 'events';
 
     protected static $logAttributes = ['company_id', 'venue_id', 'name', 'description', 'currency', 'visibility',
         'status', 'total_capacity', 'event_type_id', 'sold_out', 'starts_at', 'ends_at', 'sale_end_date_time'];

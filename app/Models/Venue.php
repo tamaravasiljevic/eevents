@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Alexzvn\LaravelMongoNotifiable\Notifiable;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Jenssegers\Mongodb\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -10,8 +11,10 @@ use Spatie\Activitylog\Traits\LogsActivity;
 class Venue extends Model
 {
     use CrudTrait;
+    use Notifiable;
     use LogsActivity;
 
+    protected $collection = 'venues';
     protected $fillable = ['name', 'address', 'city', 'state', 'timezone', 'company_id', 'country_id'];
 
     protected static $logAttributes = ['name', 'address', 'city', 'state', 'timezone', 'company_id', 'country_id'];
@@ -27,6 +30,11 @@ class Venue extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+
+    public function getConnectionName()
+    {
+        return config('database.default');
+    }
 
     public function country() : BelongsTo
     {
