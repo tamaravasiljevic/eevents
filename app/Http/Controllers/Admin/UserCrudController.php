@@ -155,13 +155,10 @@ class UserCrudController extends CrudController
     {
         $this->setupCreateOperation();
     }
-//
-public function store(UserRequest  $request){
-        dd(32   );
-}
+
     public function update(UserRequest $request)
     {
-dd(3);
+
         // Hash password before save
         if (!empty($request->password)) {
             request()->merge(['password' => \Hash::make($request->password)]);

@@ -6,12 +6,11 @@ use App\Http\Traits\LogsActivityCustom;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Illuminate\Notifications\Notifiable;
+
 use Jenssegers\Mongodb\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use \Alexzvn\LaravelMongoNotifiable\Notifiable;
     use CrudTrait;
     use LogsActivityCustom;
 
