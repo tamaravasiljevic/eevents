@@ -28,6 +28,7 @@ class Ticket extends Model
 
      protected static $logAttributes = ['name', 'description', 'price', 'capacity', 'order_min', 'order_max', 'event_id'];
      protected $collection = 'tickets';
+     protected $connection = 'mongodb';
 
     /**
      * The attributes that should be hidden for arrays

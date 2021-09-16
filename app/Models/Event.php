@@ -6,6 +6,8 @@ use App\Http\Traits\LogsActivityCustom;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Jenssegers\Mongodb\Eloquent\Model;
 use Illuminate\Support\Facades\Date;
+use Jenssegers\Mongodb\Relations\BelongsTo;
+use Jenssegers\Mongodb\Relations\BelongsToMany;
 
 class Event extends Model
 {
@@ -48,9 +50,9 @@ class Event extends Model
     |--------------------------------------------------------------------------
     */
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
-    public function company()
+    public function company() : BelongsTo
     {
         return $this->belongsTo(Company::class);
     }
@@ -61,6 +63,14 @@ class Event extends Model
     public function venue()
     {
         return $this->belongsTo(Venue::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function eventType()
+    {
+        return $this->belongsTo(EventType::class);
     }
     /*
     |--------------------------------------------------------------------------
