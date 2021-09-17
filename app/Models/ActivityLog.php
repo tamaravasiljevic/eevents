@@ -11,7 +11,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 //use Spatie\Activitylog\Traits\LogsActivity;
 
-class ActivityLog extends Model
+class ActivityLog extends BaseModel
 {
     use CrudTrait;
     use LogsActivity;

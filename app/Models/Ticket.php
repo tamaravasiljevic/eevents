@@ -3,10 +3,9 @@
 namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
-use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 
-class Ticket extends Model
+class Ticket extends BaseModel
 {
     use CrudTrait;
     use LogsActivity;

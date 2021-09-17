@@ -6,7 +6,7 @@ use App\Http\Traits\LogsActivityCustom;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Company extends Model
+class Company extends BaseModel
 {
     use CrudTrait;
     use LogsActivityCustom;

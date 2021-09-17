@@ -7,7 +7,7 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Date;
 
-class Event extends Model
+class Event extends BaseModel
 {
     use CrudTrait;
     use LogsActivityCustom;

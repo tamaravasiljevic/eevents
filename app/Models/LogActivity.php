@@ -1,12 +1,7 @@
 <?php
 namespace App\Models;
 
-
-use Illuminate\Database\Eloquent\Model;
-use Spatie\Activitylog\Traits\LogsActivity;
-
-
-class LogActivity extends Model
+class LogActivity extends BaseModel
 {
 
     protected $table = "log_activities";

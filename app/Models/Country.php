@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Http\Traits\LogsActivityCustom;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
-class Country extends Model
+class Country extends BaseModel
 {
     use CrudTrait;
     use LogsActivityCustom;
