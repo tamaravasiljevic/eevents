@@ -5,27 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a126822-82e8-43e4-8eb7-fd0687a15a0d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/API/EventController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/EventResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/BaseModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/EventCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/EventCrudController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Activity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Activity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/ActivityLog.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ActivityLog.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Company.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Country.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Country.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/EventType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/EventType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/LogActivity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/LogActivity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Role.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/RoleUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/RoleUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Ticket.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Ticket.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Venue.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Venue.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,11 +202,23 @@
       <updated>1631778313089</updated>
       <workItem from="1631778314379" duration="1246000" />
       <workItem from="1631780148102" duration="40000" />
-      <workItem from="1631875787949" duration="8448000" />
+      <workItem from="1631875787949" duration="9114000" />
     </task>
+    <task id="LOCAL-00001" summary="- added Base Model &#10;- added swagger documentation&#10;- added api endpoint for event's creation and showing&#10;- added resource">
+      <created>1631902294739</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1631902294739</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="- added Base Model &#10;- added swagger documentation&#10;- added api endpoint for event's creation and showing&#10;- added resource" />
+    <option name="LAST_COMMIT_MESSAGE" value="- added Base Model &#10;- added swagger documentation&#10;- added api endpoint for event's creation and showing&#10;- added resource" />
   </component>
 </project>

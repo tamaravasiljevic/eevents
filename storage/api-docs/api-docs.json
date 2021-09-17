@@ -1,0 +1,210 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Eevents API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/events/create": {
+            "post": {
+                "tags": [
+                    "Events"
+                ],
+                "description": "Create new event",
+                "operationId": "dc1b1da269a45e5858c7b2f79333cf08",
+                "requestBody": {
+                    "description": "Create new event",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "slug",
+                                    "description"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "format": "string",
+                                        "example": "My first event"
+                                    },
+                                    "slug": {
+                                        "format": "string",
+                                        "example": "my-first-event"
+                                    },
+                                    "description": {
+                                        "format": "text",
+                                        "example": "Description for my first event"
+                                    },
+                                    "company_id": {
+                                        "format": "inetger"
+                                    },
+                                    "venue_id": {
+                                        "format": "inetger"
+                                    },
+                                    "starts_at": {
+                                        "format": "date"
+                                    },
+                                    "ends_at": {
+                                        "format": "date"
+                                    },
+                                    "capcity": {
+                                        "format": "integer",
+                                        "example": 100
+                                    },
+                                    "visibility": {
+                                        "format": "string",
+                                        "example": "Draft"
+                                    },
+                                    "status": {
+                                        "format": "string",
+                                        "example": "Active"
+                                    },
+                                    "event_type_id": {
+                                        "format": "inetger"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Event Resource"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Unauthorized"
+                    },
+                    "422": {
+                        "description": "Validation failed"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/events/{id}": {
+            "get": {
+                "tags": [
+                    "Events"
+                ],
+                "description": "Returns details for event fetched by id",
+                "operationId": "f6e17a4fe670cb397894b247c6c5d75f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of event",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "61421730c8a020255758a5d7"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Event Resource"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Model not found"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Event Resource": {
+                "description": "Event Resource info",
+                "properties": {
+                    "id": {
+                        "description": "Id of event",
+                        "type": "integer",
+                        "example": 14397942
+                    },
+                    "name": {
+                        "description": "Event's name",
+                        "type": "string",
+                        "example": "My first event"
+                    },
+                    "slug": {
+                        "description": "Event's slug",
+                        "type": "string",
+                        "example": "my-first-event"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "Our new event"
+                    },
+                    "company": {
+                        "format": "string"
+                    },
+                    "venue": {
+                        "format": "string"
+                    },
+                    "starts_at": {
+                        "format": "string"
+                    },
+                    "ends_at": {
+                        "format": "string"
+                    },
+                    "capcity": {
+                        "format": "integer",
+                        "example": 100
+                    },
+                    "visibility": {
+                        "format": "string",
+                        "example": "Draft"
+                    },
+                    "status": {
+                        "format": "string",
+                        "example": "Active"
+                    },
+                    "event_type": {
+                        "format": "string"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "security": [
+        {
+            "bearer": {
+                "type": "http",
+                "schema": "bearer",
+                "bearerFormat": "JWT"
+            }
+        },
+        []
+    ]
+}
