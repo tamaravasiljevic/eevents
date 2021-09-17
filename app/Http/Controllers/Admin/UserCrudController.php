@@ -155,7 +155,7 @@ class UserCrudController extends CrudController
     {
         $this->setupCreateOperation();
     }
-//
+
     public function update(UserRequest $request)
     {
 

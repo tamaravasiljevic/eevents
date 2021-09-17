@@ -4,10 +4,10 @@ namespace App\Models;
 
 use App\Http\Traits\LogsActivityCustom;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
-use Jenssegers\Mongodb\Eloquent\Model;
 use Illuminate\Support\Facades\Date;
+use Jenssegers\Mongodb\Relations\BelongsTo;
 
-class Event extends Model
+class Event extends BaseModel
 {
     use CrudTrait;
     use LogsActivityCustom;
@@ -25,8 +25,11 @@ class Event extends Model
     const STATUS_ACTIVE         = 1;
     const STATUS_INACTIVE       = 0;
 
-    protected $table = 'events';
-    protected $guarded = ['id'];
+    protected $guarded      = ['id'];
+
+
+    protected $collection   = 'events';
+    protected $connection   = 'mongodb';
 
     protected static $logAttributes = ['company_id', 'venue_id', 'name', 'description', 'currency', 'visibility',
         'status', 'total_capacity', 'event_type_id', 'sold_out', 'starts_at', 'ends_at', 'sale_end_date_time'];
@@ -47,9 +50,9 @@ class Event extends Model
     |--------------------------------------------------------------------------
     */
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
-    public function company()
+    public function company() : BelongsTo
     {
         return $this->belongsTo(Company::class);
     }
@@ -60,6 +63,14 @@ class Event extends Model
     public function venue()
     {
         return $this->belongsTo(Venue::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function eventType()
+    {
+        return $this->belongsTo(EventType::class);
     }
     /*
     |--------------------------------------------------------------------------

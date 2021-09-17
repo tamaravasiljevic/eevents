@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\EventTypeRequest;
+use App\Models\EventType;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class EventTypeCrudController
@@ -24,12 +26,24 @@ class EventTypeCrudController extends CrudController
         $this->crud->setModel('App\Models\EventType');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/event_types');
         $this->crud->setEntityNameStrings('Event Type', 'Event Types');
+
     }
 
     protected function setupListOperation()
     {
-        // TODO: remove setFromDb() and manually define Columns, maybe Filters
-        $this->crud->setFromDb();
+        $this->crud->addColumns([
+            [
+                'name' => 'id',
+                'label' => 'ID',
+                'type' => 'text'
+            ],
+            [
+                'name' => 'name',
+                'label' => 'Name',
+                'type' => 'text'
+            ],
+
+        ]);
     }
 
     protected function setupCreateOperation()
@@ -48,5 +62,23 @@ class EventTypeCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    protected function setupShowOperation()
+    {
+        $this->crud->set('show.setFromDb', false);
+
+        $this->crud->addColumns([
+            [
+                'name' => 'id',
+                'label' => 'Id',
+                'type' => 'text',
+            ],
+            [
+                'name' => 'name',
+                'label' => 'Name',
+                'type' => 'text',
+            ],
+        ]);
     }
 }

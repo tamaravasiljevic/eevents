@@ -27,7 +27,7 @@ class VenueRequest extends FormRequest
             'name'      => 'required',
             'address'   => 'required',
             'city'      => 'required',
-            'state'     => 'required',
+//            'state'     => 'required',
             'timezone'  => 'required',
             'company_id'=> 'required',
             'country_id'=> 'required',

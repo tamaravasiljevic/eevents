@@ -3,9 +3,11 @@ namespace App\Http\Traits;
 
 use App\Models\ActivityLog;
 use App\Models\LogActivity;
+use App\Models\User;
 use App\Traits\ActivityTraits;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Activitylog\ActivityLogger;
+ use Spatie\Activitylog\ActivityLogger;
+use Spatie\Activitylog\Models\Activity;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 trait LogsActivityCustom
@@ -42,7 +44,6 @@ trait LogsActivityCustom
                 if (method_exists($model, 'tapActivity')) {
                     $logger->tap([$model, 'tapActivity'], $eventName);
                 }
-
                 $logger->log($description);
 
                 \App\Helpers\LogActivity::addToLog(ActivityLog::latest()->first());

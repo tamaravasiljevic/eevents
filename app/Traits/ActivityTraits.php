@@ -27,7 +27,6 @@ trait ActivityTraits
 
     public function logUpdatedActivity($list,$before,$list_changes)
     {
-        dd('updabjda');
         unset($list_changes['updated_at']);
         $old_keys = [];
         $old_value_array = [];

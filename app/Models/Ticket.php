@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Alexzvn\LaravelMongoNotifiable\Notifiable;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
-use Jenssegers\Mongodb\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 
-class Ticket extends Model
+class Ticket extends BaseModel
 {
     use CrudTrait;
+    use Notifiable;
     use LogsActivity;
 
     /*
@@ -25,6 +26,8 @@ class Ticket extends Model
      protected $fillable = ['name', 'description', 'price', 'capacity', 'order_min', 'order_max', 'event_id'];
 
      protected static $logAttributes = ['name', 'description', 'price', 'capacity', 'order_min', 'order_max', 'event_id'];
+     protected $collection = 'tickets';
+     protected $connection = 'mongodb';
 
     /**
      * The attributes that should be hidden for arrays
@@ -51,6 +54,11 @@ class Ticket extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+
+    public function getConnectionName()
+    {
+        return config('database.default');
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

@@ -28,8 +28,18 @@ class CountryCrudController extends CrudController
 
     protected function setupListOperation()
     {
-        // TODO: remove setFromDb() and manually define Columns, maybe Filters
-        $this->crud->setFromDb();
+        $this->crud->addColumn([
+            'name' => 'id',
+            'label' => 'ID',
+            'type' => 'text'
+        ]);
+
+        // add name column
+        $this->crud->addColumn([
+            'name' => 'name',
+            'label' => 'Name',
+            'type' => 'text'
+        ]);
     }
 
     protected function setupCreateOperation()
