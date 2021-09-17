@@ -6,7 +6,7 @@ use Alexzvn\LaravelMongoNotifiable\Notifiable;
 use App\Http\Traits\LogsActivityCustom;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Jenssegers\Mongodb\Eloquent\Model;
-class Country extends Model
+class Country extends BaseModel
 {
     use CrudTrait;
     use Notifiable;

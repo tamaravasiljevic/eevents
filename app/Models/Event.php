@@ -4,12 +4,10 @@ namespace App\Models;
 
 use App\Http\Traits\LogsActivityCustom;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
-use Jenssegers\Mongodb\Eloquent\Model;
 use Illuminate\Support\Facades\Date;
 use Jenssegers\Mongodb\Relations\BelongsTo;
-use Jenssegers\Mongodb\Relations\BelongsToMany;
 
-class Event extends Model
+class Event extends BaseModel
 {
     use CrudTrait;
     use LogsActivityCustom;
@@ -28,6 +26,8 @@ class Event extends Model
     const STATUS_INACTIVE       = 0;
 
     protected $guarded      = ['id'];
+
+
     protected $collection   = 'events';
     protected $connection   = 'mongodb';
 

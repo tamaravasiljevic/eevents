@@ -1,12 +1,10 @@
 <?php
 namespace App\Models;
 
-
-use Jenssegers\Mongodb\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 
-class LogActivity extends Model
+class LogActivity extends BaseModel
 {
 
     protected $collection = "log_activities";

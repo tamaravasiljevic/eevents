@@ -8,7 +8,7 @@ use Jenssegers\Mongodb\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\Activitylog\Traits\LogsActivity;
 
-class Venue extends Model
+class Venue extends BaseModel
 {
     use CrudTrait;
     use Notifiable;

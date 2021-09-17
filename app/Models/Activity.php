@@ -8,7 +8,7 @@ use Illuminate\Support\Collection;
 use Jenssegers\Mongodb\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\Builder;
 
-class Activity extends Model implements \Spatie\Activitylog\Contracts\Activity
+class Activity extends BaseModel implements \Spatie\Activitylog\Contracts\Activity
 {
     public $guarded = [];
 

@@ -4,15 +4,12 @@ namespace App\Models;
 
 use Alexzvn\LaravelMongoNotifiable\Notifiable;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
-use Jenssegers\Mongodb\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Modules\ActivityLog\Events\Handlers\Auth;
-use Spatie\Activitylog\ActivityLogger;
 use Spatie\Activitylog\Traits\LogsActivity;
 
-//use Spatie\Activitylog\Traits\LogsActivity;
 
-class ActivityLog extends Model
+class ActivityLog extends BaseModel
 {
     use Notifiable;
     use CrudTrait;

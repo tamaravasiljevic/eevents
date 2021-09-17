@@ -2,11 +2,10 @@
 
 namespace App\Models;
 
-use Jenssegers\Mongodb\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\Activitylog\Traits\LogsActivity;
 
-class RoleUser extends Model
+class RoleUser extends BaseModel
 {
 
     use LogsActivity;

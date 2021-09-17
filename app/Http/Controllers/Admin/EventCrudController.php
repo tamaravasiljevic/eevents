@@ -122,19 +122,6 @@ class EventCrudController extends CrudController
                     'class' => 'col-md-6'
                 ]
             ]);
-        $this->crud->addField([
-            'label' => 'Currency',
-            'name' => 'currency',
-            'type' => 'select2_from_array',
-            'options' => [
-                'EUR' => 'EUR',
-                'USD' => 'USD'
-            ],
-            'allows_null' => false,
-            'wrapperAttributes' => [
-                'class' => 'col-md-6'
-            ]
-        ]);
         $this->crud->addField(
             [
                 'label' => 'Total Capacity',

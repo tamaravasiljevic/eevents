@@ -7,7 +7,7 @@ use App\Http\Traits\LogsActivityCustom;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Jenssegers\Mongodb\Eloquent\Model;
 
-class Company extends Model
+class Company extends BaseModel
 {
     use Notifiable;
     use CrudTrait;
@@ -22,8 +22,7 @@ class Company extends Model
     protected $table = 'companies';
     protected $collection='companies';
     protected $connection='mongodb';
-    // protected $primaryKey = 'id';
-    // public $timestamps = false;
+
     protected $guarded = ['id'];
     protected static $logAttributes = ['name', 'description', 'email', 'phone', 'website', 'facebook_url', 'twitter_url',
         'instagram_url', 'linkedin_url'];

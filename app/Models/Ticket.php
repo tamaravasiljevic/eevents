@@ -4,10 +4,9 @@ namespace App\Models;
 
 use Alexzvn\LaravelMongoNotifiable\Notifiable;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
-use Jenssegers\Mongodb\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 
-class Ticket extends Model
+class Ticket extends BaseModel
 {
     use CrudTrait;
     use Notifiable;
