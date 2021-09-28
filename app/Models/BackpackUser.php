@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 class BackpackUser extends User
 {
     use \Alexzvn\LaravelMongoNotifiable\Notifiable;
-    use LogsActivityCustom;
+//    use LogsActivityCustom;
 
     protected $collection = 'users';
     /**

@@ -15,9 +15,8 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 class ActivityLogCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation {
-        show as traitShow;
-    }
+    use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation { show as traitShow; }
 
 
     public function setup()
@@ -83,7 +82,6 @@ class ActivityLogCrudController extends CrudController
     protected function setupShowOperation()
     {
         $this->crud->set('show.setFromDb', false);
-
         $this->crud->addColumns([
             [
                 'label' => 'ID',
@@ -120,14 +118,9 @@ class ActivityLogCrudController extends CrudController
                 'label' => 'Entry updated at',
                 'type'  => 'datetime'
             ],
-            [
-                'name'  => 'properties',
-                'label' => 'Changes',
-                'type'  => 'json'
-            ],
+
         ]);
     }
-
     public function show($id)
     {
         $content = $this->traitShow($id);
@@ -140,7 +133,12 @@ class ActivityLogCrudController extends CrudController
     {
         $content = $this->traitShow($id);
         $additionalData = $content->entry->logActivityAdditional;
-
+        $entry = $this->crud->entry;
+        $oldValues  = array_filter($entry->properties['old']) ?? null;
+        $newValues  = array_filter($entry->properties['attributes']) ?? null;
+        $changed    = array_diff($oldValues, $newValues);
+        ksort($oldValues);
+        ksort($newValues);
         if($additionalData) {
             $this->crud->addColumns([
                 [
@@ -162,9 +160,51 @@ class ActivityLogCrudController extends CrudController
                 [
                     'name'  => 'logActivityAdditional.url',
                     'label' => 'Url',
-                    'type'  => 'text'
+                    'type'  => 'textarea'
                 ],
             ]);
-        }
+            $oldColumns = [];
+            foreach ($oldValues as $key => $value) {
+                $name = 'properties.old.' . $key;
+                $oldColumns[] = [
+                    'name' => $name,
+                    'label' => $key . '_old',
+                    'type' => 'textarea',
+                    'wrapper' => [
+                        'style' => array_key_exists($key, $changed) ? 'color:red' : '',
+                        'class' => 'form-group col-md-3 !important'
+                    ],
+                    'wrapperAttributes' => [
+                        'class' => 'col-md-6'
+                    ]
+                ];
+            }
+
+            $newColumns = [];
+
+            foreach ($newValues as $key => $value) {
+                $name = 'properties.attributes.' . $key;
+                $newColumns[] = [
+                    'name' => $name,
+                    'label' => $key . '_new',
+                    'type' => 'textarea',
+                    'wrapper' => [
+                        'style' =>  array_key_exists($key, $changed) ? 'color:#3DC400' : '',
+                        'class' => 'form-group col-md-6 !important'
+                    ],
+                    'wrapperAttributes' => [
+                        'class' => 'col-md-6'
+                    ]
+                ];
+            }
+
+            $result = array_merge($oldColumns, $newColumns);
+
+                $price = array_column($result, 'label');
+                array_multisort($price, SORT_DESC, $result);
+
+            $this->crud->addColumns($result);
+            }
+
     }
 }

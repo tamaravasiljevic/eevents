@@ -14,7 +14,7 @@ trait ActivityTraits
 
     public function logCreatedActivity($logModel,$changes,$request)
     {
-
+        \Log::info('caused by', [Auth::user()]);
         $activity = activity()
             ->causedBy(Auth::user())
             ->performedOn($logModel)

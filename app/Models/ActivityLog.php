@@ -39,6 +39,15 @@ class ActivityLog extends BaseModel
         return explode("\\", $this->subject_type)[2] ?? 'unknown';
     }
 
+    public function getOldValuesAttribute()
+    {
+        return $this->properties['old'] ?? [];
+    }
+
+    public function getNewValuesAttribute()
+    {
+        return $this->properties['attributes'] ?? [];
+    }
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

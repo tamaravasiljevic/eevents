@@ -93,11 +93,11 @@ class VenueCrudController extends CrudController
                 'type'  => 'select2_from_array',
                 'options'   => $countries,
             ],
-            [
-                'name'  => 'timezone',
-                'label' => 'Timezone',
-                'type'  => 'text'
-            ],
+//            [
+//                'name'  => 'timezone',
+//                'label' => 'Timezone',
+//                'type'  => 'text'
+//            ],
             [
                 'label' => 'Company',
                 'name'  => 'company_id',

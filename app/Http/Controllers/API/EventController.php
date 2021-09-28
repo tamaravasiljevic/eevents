@@ -7,6 +7,7 @@ use App\Http\Requests\EventRequest;
 use App\Http\Resources\EventResource;
 use App\Models\Event;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -156,7 +157,7 @@ class EventController extends Controller
         $event  = Event::find($id);
 
         if (!$event) {
-
+            throw new ModelNotFoundException("Event with id: $id was not found");
         }
 
         return new EventResource($event);

@@ -2,14 +2,17 @@
 
 namespace App\Models;
 
+use Alexzvn\LaravelMongoNotifiable\Notifiable;
 use App\Http\Traits\LogsActivityCustom;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Date;
 use Jenssegers\Mongodb\Relations\BelongsTo;
 
 class Event extends BaseModel
 {
     use CrudTrait;
+    use Notifiable;
     use LogsActivityCustom;
 
     /*
@@ -27,17 +30,17 @@ class Event extends BaseModel
 
     protected $guarded      = ['id'];
 
-
-    protected $collection   = 'events';
-    protected $connection   = 'mongodb';
-
-    protected static $logAttributes = ['company_id', 'venue_id', 'name', 'description', 'currency', 'visibility',
-        'status', 'total_capacity', 'event_type_id', 'sold_out', 'starts_at', 'ends_at', 'sale_end_date_time'];
-
     protected $casts = [
         'starts_at' => 'datetime',
         'ends_at' => 'datetime',
     ];
+    protected $collection   = 'events';
+    protected $connection   = 'mongodb';
+
+
+    protected static $logAttributes = ['company_id', 'venue_id', 'name', 'description', 'currency', 'visibility',
+        'status', 'total_capacity', 'event_type_id', 'sold_out', 'starts_at', 'ends_at', 'sale_end_date_time'];
+
     /*
     |--------------------------------------------------------------------------
     | FUNCTIONS
@@ -89,12 +92,9 @@ class Event extends BaseModel
     | MUTATORS
     |--------------------------------------------------------------------------
     */
-    public function setStartsAtAttribute($value) {
-        $this->attributes['starts_at'] = Date::parse($value);
-    }
 
-    public function setEndsAtAttribute($value) {
-        $this->attributes['ends_at'] = Date::parse($value);
-    }
+        public function getEventTypeNameAttribute() {
+            return $this->eventType->name ?? 'Unknown';
+        }
 
 }

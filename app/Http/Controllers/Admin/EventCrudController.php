@@ -186,4 +186,127 @@ class EventCrudController extends CrudController
                 ]
             ]);
     }
+
+    protected function setupShowOperation()
+    {
+        $this->crud->set('show.setFromDb', false);
+
+        $this->crud->addColumns([
+            [
+                'name' => 'id',
+                'label' => 'Id',
+                'type' => 'text',
+            ],
+            [
+                'name' => 'name',
+                'label' => 'Name',
+                'type' => 'text',
+            ],
+            [
+                'name' => 'slug',
+                'label' => 'Slug',
+                'type' => 'text'
+            ],
+            [
+                'name' => 'description',
+                'label' => 'Description',
+                'type' => 'tinymce'
+            ],
+            [
+                'label' => 'Company',
+                'type' => 'select',
+                'name' => 'company_id',
+                'entity' => 'company',
+                'attribute' => 'name',
+                'model' => Company::class,
+                'wrapperAttributes' => [
+                    'class' => 'col-md-6'
+                ]
+            ],
+            [
+                'label' => 'Venue',
+                'type' => 'select',
+                'name' => 'venue_id',
+                'entity' => 'venue',
+                'attribute' => 'name',
+                'model' => 'App\Models\Venue',
+                'wrapperAttributes' => [
+                    'class' => 'col-md-6'
+                ]
+            ],
+            [
+                'label' => 'Starts at',
+                'name' => 'starts_at',
+                'type' => 'datetime',
+                'wrapperAttributes' => [
+                    'class' => 'col-md-6'
+                ],
+                'allows_null' => true,
+            ],
+            [
+                'label' => 'Ends at',
+                'name' => 'ends_at',
+                'type' => 'datetime',
+                'wrapperAttributes' => [
+                    'class' => 'col-md-6'
+                ]
+            ],
+            [
+                'label' => 'Total Capacity',
+                'name' => 'total_capacity',
+                'type' => 'number',
+                'allows_null' => false,
+                'wrapperAttributes' => [
+                    'class' => 'col-md-6'
+                ]
+            ],
+            [
+                'label' => 'Visibility',
+                'name' => 'visibility',
+                'type' => 'radio',
+                'inline' => true,
+                'default' => Event::VISIBILITY_PUBLIC,
+                'options' => [
+                    Event::VISIBILITY_PUBLIC => 'Public',
+                    Event::VISIBILITY_PRIVATE => 'Private',
+                    Event::VISIBILITY_DRAFT => 'Draft'
+                ],
+                'allows_null' => false,
+                'wrapperAttributes' => [
+                    'class' => 'col-md-6'
+                ]
+            ],
+            [
+                'label' => 'Status',
+                'name' => 'status',
+                'type' => 'radio',
+                'inline' => true,
+                'default' => Event::STATUS_ACTIVE,
+                'options' => [
+                    Event::STATUS_ACTIVE => 'Active',
+                    Event::STATUS_INACTIVE => 'Inactive',
+                ],
+                'wrapperAttributes' => [
+                    'class' => 'col-md-6'
+                ]
+            ],
+            [
+                'label' => 'Sold Out',
+                'name' => 'sold_out',
+                'type' => 'checkbox',
+                'wrapperAttributes' => [
+                    'class' => 'col-md-6'
+                ]
+            ],
+            [
+                'label' => 'Event Type',
+                'name' => 'event_type_name',
+                'type' => 'text',
+                'wrapperAttributes' => [
+                    'class' => 'col-md-6'
+                ]
+            ]
+        ]);
+
+    }
 }

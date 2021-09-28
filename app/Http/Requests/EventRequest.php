@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
 class EventRequest extends FormRequest
@@ -25,6 +26,10 @@ class EventRequest extends FormRequest
      */
     public function rules()
     {
+        request()->merge([
+            'starts_at' => Carbon::parse(request('starts_at', null)),
+            'ends_at' => Carbon::parse(request('ends_at', null))
+        ]);
 //        dd(request()->all());
         return [
             'name' => 'required|min:5|max:255',
@@ -32,7 +37,7 @@ class EventRequest extends FormRequest
             'company_id'    =>  'required',
             'venue_id'      => 'required',
             'description'   => 'required',
-            'currency'      => 'required|max:3',
+          //  'currency'      => 'required|max:3',
             'visibility'    => 'required',
             'status'        => 'required',
             'total_capacity'=> 'required|integer',
